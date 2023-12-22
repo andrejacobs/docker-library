@@ -1,4 +1,9 @@
+# Use official Go image as the base
 FROM golang:1.21 as builder
+
+# Install dependencies if needed
+RUN apt update
+RUN apt install -y git
 
 WORKDIR /usr/src
 
@@ -6,3 +11,4 @@ WORKDIR /usr/src
 # COPY go.mod go.sum ./
 # RUN go mod download && go mod verify
 RUN go version
+RUN git version
