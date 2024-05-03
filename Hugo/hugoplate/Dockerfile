@@ -46,5 +46,5 @@ RUN npm install
 
 EXPOSE 1313
 
-ENTRYPOINT [ "npm", "run" ]
-CMD [ "dev" ]
+# ENTRYPOINT [ "hugo", "server", "--bind", "0.0.0.0" ]
+CMD [ "hugo", "server", "--bind", "0.0.0.0" ]
