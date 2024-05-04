@@ -44,7 +44,13 @@ WORKDIR /usr/src/hugoplate
 RUN npm run project-setup
 RUN npm install
 
+# Copy scripts
+COPY --chmod=0755 scripts/ .
+
 EXPOSE 1313
 
-# ENTRYPOINT [ "hugo", "server", "--bind", "0.0.0.0" ]
-CMD [ "hugo", "server", "--bind", "0.0.0.0" ]
+# Override the default node entry point
+ENTRYPOINT [""]
+
+# Default command is to run the hugo server for development
+CMD ["/usr/src/hugoplate/dev.sh"]
