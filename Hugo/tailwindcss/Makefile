@@ -1,5 +1,5 @@
 # Docker image
-IMAGE_TAG := hugo-site-generator
+IMAGE_TAG := hugo-site-generator-tailwindcss
 LOCAL_PORT := 1313
 CONTAINER_PORT := 1313
 # Directories and files
@@ -26,6 +26,7 @@ CONTAINER_SCRIPT_COPY_SITE := $(CONTAINER_SCRIPT_DIR)/copy-to-host.sh
 # Build the docker image
 .PHONY: build
 build:
+#	docker build --progress=plain -t $(IMAGE_TAG) .
 	docker build -t $(IMAGE_TAG) .
 
 # Initial copy of the site files to the host
